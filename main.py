@@ -16,7 +16,7 @@ def create_tables():
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       name VARCHAR(255),
                       specialization VARCHAR(255),
-                      contact VARCHAR(255))''')
+                      contact INT)''')
 
 def add_patient():
     name = input("Enter patient name: ")
@@ -32,7 +32,7 @@ def add_patient():
 def add_doctor():
     name = input("Enter doctor name: ")
     specialization = input("Enter specialization: ")
-    contact = input("Enter contact number: ")
+    contact = int(input("Enter contact number: "))
     query = "INSERT INTO doctors (name, specialization, contact) VALUES (%s, %s, %s)"
     values = (name, specialization, contact)
     cursor.execute(query, values)
